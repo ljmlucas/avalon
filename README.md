@@ -57,7 +57,10 @@ docker run --rm -p 127.0.0.1:8080:8080  avalon
 - Create a POST request with URL http://localhost:8080/login. The body should have a valid username and password. In this project, the username is admin and the password is password. 
 
  ```shell
-curl -v  --header "Content-Type: application/json" --request POST --data '{"username":"admin","password":"password"}' http://localhost:8080/login
+curl http://localhost:8080/login -v  \
+	--request POST \
+	--header "Content-Type: application/json" \
+	--data '{"username":"admin","password":"password"}'	
 ```
 
 - Copy the header Authorization from the response header, the token is valid for 24 hours:
@@ -69,7 +72,10 @@ Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2NTYyNzIxOX0.46P_Vro3
 - Access endpoints with header Authorization: $token
 
 ```shell
-curl http://localhost:8080/transactions --header "Content-Type: application/json" --header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2NTYyNzIxOX0.46P_Vro3CX6kYuOY2oabH0VV8Oqvodt1G0vftOKeFCu9DY1lZ3PXY8GiLmSzxCQx1yNPF6ANrAYq7jlWj9uUHg" --request GET
+curl http://localhost:8080/transactions \
+	--request GET \
+	--header "Content-Type: application/json" \
+	--header "Authorization: Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImV4cCI6MTU2NTYyNzIxOX0.46P_Vro3CX6kYuOY2oabH0VV8Oqvodt1G0vftOKeFCu9DY1lZ3PXY8GiLmSzxCQx1yNPF6ANrAYq7jlWj9uUHg"
 ```
  
 
