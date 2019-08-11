@@ -19,6 +19,9 @@ target/
 *.iml
 *.ipr
 
+### Eclipse ###
+.project
+
 ### NetBeans ###
 /nbproject/private/
 /nbbuild/
